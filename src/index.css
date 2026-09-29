@@ -12,7 +12,27 @@
     font-family: 'Times New Roman', Times, Georgia, serif !important;
     antialiased: true;
     overflow-x: hidden;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
   }
+}
+
+/* Safe area padding utilities for iOS notches */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Hide scrollbars on mobile tab controls */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Micro Animations */

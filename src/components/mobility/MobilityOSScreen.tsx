@@ -113,26 +113,26 @@ export const MobilityOSScreen: React.FC = () => {
   const otherBuses = liveBusList.filter(b => b.busId !== (recommendation?.recommendedBus.busId || 'BUS-07'));
 
   return (
-    <div className="p-8 space-y-8 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif">
+    <div className="p-4 sm:p-6 lg:p-8 space-y-6 lg:space-y-8 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif">
       
       {/* 1. TITLE & SUBTITLE */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-xl border border-[#DADCE0] shadow-sm">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-4 sm:p-6 rounded-xl border border-[#DADCE0] shadow-sm">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F0FE] text-[#1A73E8] text-xs font-mono font-bold border border-[#4285F4]/30 mb-2">
             <Bus className="w-3.5 h-3.5 text-[#4285F4]" />
             MOBILITYOS CORE
           </div>
-          <h1 className="text-3xl font-bold text-[#202124] tracking-tight">CAMPUS MOBILITY</h1>
-          <p className="text-base text-[#5F6368] font-normal italic mt-0.5">
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#202124] tracking-tight">CAMPUS MOBILITY</h1>
+          <p className="text-xs sm:text-base text-[#5F6368] font-normal italic mt-0.5">
             “See where buses are, when they arrive, and what is affecting them.”
           </p>
         </div>
 
         {/* Sub-Mode Switcher */}
-        <div className="flex items-center gap-1.5 p-1.5 bg-[#F8F9FA] border border-[#DADCE0] rounded-lg">
+        <div className="flex items-center gap-1.5 p-1.5 bg-[#F8F9FA] border border-[#DADCE0] rounded-lg overflow-x-auto no-scrollbar w-full md:w-auto">
           <button
             onClick={() => setActiveSubMode('student')}
-            className={`px-4 py-2 rounded-md text-xs font-bold transition-all flex items-center gap-1.5 ${
+            className={`px-3 sm:px-4 py-2.5 rounded-md text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 min-h-[44px] ${
               activeSubMode === 'student'
                 ? 'bg-[#4285F4] text-white shadow-2xs'
                 : 'text-[#5F6368] hover:text-[#202124]'
@@ -143,7 +143,7 @@ export const MobilityOSScreen: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveSubMode('driver')}
-            className={`px-4 py-2 rounded-md text-xs font-bold transition-all flex items-center gap-1.5 ${
+            className={`px-3 sm:px-4 py-2.5 rounded-md text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 min-h-[44px] ${
               activeSubMode === 'driver'
                 ? 'bg-[#EA4335] text-white shadow-2xs'
                 : 'text-[#5F6368] hover:text-[#202124]'
@@ -154,7 +154,7 @@ export const MobilityOSScreen: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveSubMode('fleet')}
-            className={`px-4 py-2 rounded-md text-xs font-bold transition-all flex items-center gap-1.5 ${
+            className={`px-3 sm:px-4 py-2.5 rounded-md text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 min-h-[44px] ${
               activeSubMode === 'fleet'
                 ? 'bg-[#34A853] text-white shadow-2xs'
                 : 'text-[#5F6368] hover:text-[#202124]'
@@ -211,7 +211,7 @@ export const MobilityOSScreen: React.FC = () => {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               
               {/* STEP 1: WHERE ARE YOU? */}
               <div className="p-4 rounded-lg bg-[#F8F9FA] border border-[#DADCE0] space-y-3">
@@ -221,7 +221,7 @@ export const MobilityOSScreen: React.FC = () => {
                 <button
                   onClick={handleUseMyLocation}
                   disabled={isLocatingStudent}
-                  className="w-full py-2 px-3 rounded bg-[#4285F4] hover:bg-[#3367D6] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-2xs"
+                  className="w-full py-2.5 px-3 min-h-[44px] rounded bg-[#4285F4] hover:bg-[#3367D6] text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-2xs"
                 >
                   <MapPin className="w-3.5 h-3.5 fill-white" />
                   {isLocatingStudent ? 'LOCATING...' : 'USE MY LOCATION'}
@@ -270,7 +270,7 @@ export const MobilityOSScreen: React.FC = () => {
             <div className="pt-2 flex justify-center">
               <button
                 onClick={() => setSelectedBusId(recommendation?.recommendedBus.busId || 'BUS-07')}
-                className="px-8 py-3.5 rounded-lg bg-[#4285F4] hover:bg-[#3367D6] text-white font-bold text-sm uppercase tracking-wider flex items-center gap-2.5 shadow-md transition-all"
+                className="w-full sm:w-auto px-8 py-3.5 min-h-[48px] rounded-lg bg-[#4285F4] hover:bg-[#3367D6] text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md transition-all"
               >
                 <Bus className="w-5 h-5 fill-white" />
                 TRACK MY BUS LIVE

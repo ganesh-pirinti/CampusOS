@@ -19,33 +19,33 @@ export const MentorOSScreen: React.FC = () => {
   };
 
   return (
-    <div className="p-8 space-y-8 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif">
+    <div className="p-4 sm:p-6 lg:p-8 space-y-6 lg:space-y-8 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif">
       
       {/* 1. TITLE & MAIN MESSAGE */}
-      <div className="bg-white p-6 rounded-xl border border-[#DADCE0] shadow-sm space-y-2">
+      <div className="bg-white p-4 sm:p-6 rounded-xl border border-[#DADCE0] shadow-sm space-y-2">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FEF7E0] text-[#B06000] text-xs font-mono font-bold border border-[#FBBC05]/30">
           <GraduationCap className="w-3.5 h-3.5 text-[#FBBC05]" />
           MENTOROS ACADEMIC SUPPORT
         </div>
-        <h1 className="text-3xl font-bold text-[#202124] tracking-tight">EARLY ACADEMIC SUPPORT</h1>
-        <p className="text-xl text-[#5F6368] font-normal italic">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#202124] tracking-tight">EARLY ACADEMIC SUPPORT</h1>
+        <p className="text-base sm:text-xl text-[#5F6368] font-normal italic">
           “Turn a learning problem into an available support action.”
         </p>
       </div>
 
       {/* 2. HERO STUDENT SUPPORT CARD */}
-      <div className="bg-white rounded-xl border border-[#DADCE0] p-8 shadow-sm space-y-8">
+      <div className="bg-white rounded-xl border border-[#DADCE0] p-4 sm:p-6 lg:p-8 shadow-sm space-y-6 lg:space-y-8">
         
         {/* STUDENT CARD */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-[#DADCE0] pb-6">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-xl bg-[#FEF7E0] text-[#B06000] flex items-center justify-center font-bold text-2xl border border-[#FBBC05]/40">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-xl bg-[#FEF7E0] text-[#B06000] flex items-center justify-center font-bold text-xl sm:text-2xl border border-[#FBBC05]/40">
               🎓
             </div>
             <div>
               <span className="text-xs font-mono text-[#B06000] uppercase font-bold">STUDENT TELEMETRY CARD</span>
-              <h2 className="text-2xl font-bold text-[#202124]">Ganesh</h2>
-              <div className="text-sm text-[#5F6368] mt-0.5">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#202124]">Ganesh</h2>
+              <div className="text-xs sm:text-sm text-[#5F6368] mt-0.5">
                 Course: <strong className="text-[#202124]">Data Structures</strong> • Quiz Score: <span className="text-[#EA4335] font-bold">38%</span>
               </div>
             </div>
@@ -58,16 +58,16 @@ export const MentorOSScreen: React.FC = () => {
         </div>
 
         {/* CAMPUSOS MATCHING FIND */}
-        <div className="p-6 rounded-xl bg-[#E8F0FE] border border-[#4285F4]/40 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="p-4 sm:p-6 rounded-xl bg-[#E8F0FE] border border-[#4285F4]/40 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-1">
             <span className="text-xs font-mono text-[#1A73E8] uppercase font-bold flex items-center gap-1.5">
               <Sparkles className="w-4 h-4 text-[#1A73E8]" />
               CAMPUSOS FACULTY &amp; SLOT MATCH
             </span>
-            <div className="text-lg font-bold text-[#202124]">
+            <div className="text-base sm:text-lg font-bold text-[#202124]">
               Faculty: <span className="text-[#1A73E8]">Prof. X</span> (Data Structures Chair)
             </div>
-            <div className="text-sm text-[#5F6368]">
+            <div className="text-xs sm:text-sm text-[#5F6368]">
               Available Office Slot: <strong className="text-[#202124]">4:00–4:30 PM Today</strong>
             </div>
           </div>
@@ -76,7 +76,7 @@ export const MentorOSScreen: React.FC = () => {
             <button
               onClick={handleSchedule}
               disabled={scheduledState}
-              className={`px-8 py-3.5 rounded-lg text-sm font-bold uppercase tracking-wider flex items-center gap-2.5 shadow-md transition-all ${
+              className={`w-full sm:w-auto px-8 py-3.5 min-h-[48px] rounded-lg text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md transition-all ${
                 scheduledState
                   ? 'bg-[#E6F4EA] text-[#137333] border border-[#34A853]/40 cursor-default'
                   : 'bg-[#FBBC05] hover:bg-[#F2B600] text-[#202124]'
@@ -103,7 +103,7 @@ export const MentorOSScreen: React.FC = () => {
             VISUAL SUPPORT CASCADE FLOW
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-3">
             <div className="p-4 rounded-lg bg-[#F8F9FA] border border-[#DADCE0] text-center space-y-1">
               <div className="text-xs font-bold text-[#5F6368] font-mono">1. LMS</div>
               <div className="text-sm font-bold text-[#202124]">Quiz Score (38%)</div>

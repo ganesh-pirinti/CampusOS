@@ -23,38 +23,38 @@ export const EventSimulatorScreen: React.FC = () => {
   };
 
   return (
-    <div className="p-8 space-y-8 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif">
+    <div className="p-4 sm:p-6 lg:p-8 space-y-6 lg:space-y-8 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif">
       
       {/* 1. TITLE & SUBTITLE */}
-      <div className="bg-white p-6 rounded-xl border border-[#DADCE0] shadow-sm space-y-2">
+      <div className="bg-white p-4 sm:p-6 rounded-xl border border-[#DADCE0] shadow-sm space-y-2">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F0FE] text-[#1A73E8] text-xs font-mono font-bold border border-[#4285F4]/30">
           <Zap className="w-3.5 h-3.5 text-[#4285F4]" />
           HERO DEMO ENGINE
         </div>
-        <h1 className="text-3xl font-bold text-[#202124] tracking-tight">SIMULATE A CAMPUS EVENT</h1>
-        <p className="text-xl text-[#5F6368] font-normal italic">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#202124] tracking-tight">SIMULATE A CAMPUS EVENT</h1>
+        <p className="text-base sm:text-xl text-[#5F6368] font-normal italic">
           “See how one event changes the rest of campus.”
         </p>
       </div>
 
       {/* 2. LARGE 5 EVENT BUTTONS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
         
         {/* BUS DELAY */}
         <button
           onClick={() => handleSimulate('BUS_DELAY')}
-          className={`p-5 rounded-xl border text-left space-y-3 transition-all ${
+          className={`p-4 sm:p-5 min-h-[48px] rounded-xl border text-left space-y-3 transition-all ${
             selectedEventType === 'BUS_DELAY' && simulatedResult
               ? 'bg-[#E8F0FE] border-[#4285F4] ring-2 ring-[#4285F4]/30 shadow-md'
               : 'bg-white border-[#DADCE0] hover:border-[#4285F4]'
           }`}
         >
-          <div className="w-10 h-10 rounded-lg bg-[#4285F4] text-white flex items-center justify-center font-bold">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#4285F4] text-white flex items-center justify-center font-bold">
             <Bus className="w-5 h-5" />
           </div>
           <div>
             <div className="text-xs font-mono text-[#1A73E8] font-bold">EVENT 1</div>
-            <div className="text-base font-bold text-[#202124]">BUS DELAY</div>
+            <div className="text-sm sm:text-base font-bold text-[#202124]">BUS DELAY</div>
             <div className="text-[11px] text-[#5F6368] mt-1">Bus 07 delayed 18m</div>
           </div>
         </button>
@@ -62,18 +62,18 @@ export const EventSimulatorScreen: React.FC = () => {
         {/* ROAD BLOCK */}
         <button
           onClick={() => handleSimulate('ROAD_BLOCK')}
-          className={`p-5 rounded-xl border text-left space-y-3 transition-all ${
+          className={`p-4 sm:p-5 min-h-[48px] rounded-xl border text-left space-y-3 transition-all ${
             selectedEventType === 'ROAD_BLOCK' && simulatedResult
               ? 'bg-[#FCE8E6] border-[#EA4335] ring-2 ring-[#EA4335]/30 shadow-md'
               : 'bg-white border-[#DADCE0] hover:border-[#EA4335]'
           }`}
         >
-          <div className="w-10 h-10 rounded-lg bg-[#EA4335] text-white flex items-center justify-center font-bold">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#EA4335] text-white flex items-center justify-center font-bold">
             <MapPin className="w-5 h-5" />
           </div>
           <div>
             <div className="text-xs font-mono text-[#EA4335] font-bold">EVENT 2</div>
-            <div className="text-base font-bold text-[#202124]">ROAD BLOCK</div>
+            <div className="text-sm sm:text-base font-bold text-[#202124]">ROAD BLOCK</div>
             <div className="text-[11px] text-[#5F6368] mt-1">Vijayawada Route obstruction</div>
           </div>
         </button>
@@ -81,18 +81,18 @@ export const EventSimulatorScreen: React.FC = () => {
         {/* HACKATHON WIN */}
         <button
           onClick={() => handleSimulate('HACKATHON_WIN')}
-          className={`p-5 rounded-xl border text-left space-y-3 transition-all ${
+          className={`p-4 sm:p-5 min-h-[48px] rounded-xl border text-left space-y-3 transition-all ${
             selectedEventType === 'HACKATHON_WIN' && simulatedResult
               ? 'bg-[#E6F4EA] border-[#34A853] ring-2 ring-[#34A853]/30 shadow-md'
               : 'bg-white border-[#DADCE0] hover:border-[#34A853]'
           }`}
         >
-          <div className="w-10 h-10 rounded-lg bg-[#34A853] text-white flex items-center justify-center font-bold">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#34A853] text-white flex items-center justify-center font-bold">
             <Trophy className="w-5 h-5" />
           </div>
           <div>
             <div className="text-xs font-mono text-[#34A853] font-bold">EVENT 3</div>
-            <div className="text-base font-bold text-[#202124]">HACKATHON WIN</div>
+            <div className="text-sm sm:text-base font-bold text-[#202124]">HACKATHON WIN</div>
             <div className="text-[11px] text-[#5F6368] mt-1">External victory verified</div>
           </div>
         </button>
@@ -100,18 +100,18 @@ export const EventSimulatorScreen: React.FC = () => {
         {/* QUIZ FAILURE */}
         <button
           onClick={() => handleSimulate('QUIZ_FAILURE')}
-          className={`p-5 rounded-xl border text-left space-y-3 transition-all ${
+          className={`p-4 sm:p-5 min-h-[48px] rounded-xl border text-left space-y-3 transition-all ${
             selectedEventType === 'QUIZ_FAILURE' && simulatedResult
               ? 'bg-[#FEF7E0] border-[#FBBC05] ring-2 ring-[#FBBC05]/30 shadow-md'
               : 'bg-white border-[#DADCE0] hover:border-[#FBBC05]'
           }`}
         >
-          <div className="w-10 h-10 rounded-lg bg-[#FBBC05] text-[#202124] flex items-center justify-center font-bold">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#FBBC05] text-[#202124] flex items-center justify-center font-bold">
             <GraduationCap className="w-5 h-5" />
           </div>
           <div>
             <div className="text-xs font-mono text-[#B06000] font-bold">EVENT 4</div>
-            <div className="text-base font-bold text-[#202124]">QUIZ FAILURE</div>
+            <div className="text-sm sm:text-base font-bold text-[#202124]">QUIZ FAILURE</div>
             <div className="text-[11px] text-[#5F6368] mt-1">38% Linked List gap</div>
           </div>
         </button>
@@ -119,18 +119,18 @@ export const EventSimulatorScreen: React.FC = () => {
         {/* ACCESS CHANGE */}
         <button
           onClick={() => handleSimulate('ACCESS_STATUS_CHANGE')}
-          className={`p-5 rounded-xl border text-left space-y-3 transition-all ${
+          className={`p-4 sm:p-5 min-h-[48px] rounded-xl border text-left space-y-3 transition-all ${
             selectedEventType === 'ACCESS_STATUS_CHANGE' && simulatedResult
               ? 'bg-[#E8F0FE] border-[#4285F4] ring-2 ring-[#4285F4]/30 shadow-md'
               : 'bg-white border-[#DADCE0] hover:border-[#4285F4]'
           }`}
         >
-          <div className="w-10 h-10 rounded-lg bg-[#4285F4] text-white flex items-center justify-center font-bold">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-[#4285F4] text-white flex items-center justify-center font-bold">
             <ShieldAlert className="w-5 h-5" />
           </div>
           <div>
             <div className="text-xs font-mono text-[#1A73E8] font-bold">EVENT 5</div>
-            <div className="text-base font-bold text-[#202124]">ACCESS CHANGE</div>
+            <div className="text-sm sm:text-base font-bold text-[#202124]">ACCESS CHANGE</div>
             <div className="text-[11px] text-[#5F6368] mt-1">Privacy gate hold</div>
           </div>
         </button>
@@ -138,12 +138,12 @@ export const EventSimulatorScreen: React.FC = () => {
       </div>
 
       {/* 3. 5-STEP CASCADE PROGRESSION OUTPUT */}
-      <div className="bg-white rounded-xl border border-[#DADCE0] p-8 shadow-sm space-y-8">
+      <div className="bg-white rounded-xl border border-[#DADCE0] p-4 sm:p-6 lg:p-8 shadow-sm space-y-6 lg:space-y-8">
         
-        <div className="flex items-center justify-between border-b border-[#DADCE0] pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#DADCE0] pb-4">
           <div>
             <span className="text-xs font-mono text-[#4285F4] uppercase font-bold">SIMULATION OUTPUT CASCADE</span>
-            <h2 className="text-2xl font-bold text-[#202124]">
+            <h2 className="text-xl sm:text-2xl font-bold text-[#202124]">
               {selectedEventType === 'BUS_DELAY' && 'BUS 07 DELAYED'}
               {selectedEventType === 'ROAD_BLOCK' && 'ROAD BLOCK DETECTED'}
               {selectedEventType === 'HACKATHON_WIN' && 'HACKATHON WIN VERIFIED'}
@@ -154,7 +154,7 @@ export const EventSimulatorScreen: React.FC = () => {
 
           <button
             onClick={() => setSelectedEventForImpact(simulatedResult?.event || null)}
-            className="px-5 py-2.5 rounded-lg bg-[#4285F4] hover:bg-[#3367D6] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-2xs"
+            className="w-full sm:w-auto px-5 py-3 min-h-[44px] rounded-lg bg-[#4285F4] hover:bg-[#3367D6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-2xs"
           >
             <span>VIEW IMPACT DETAILS</span>
             <ArrowRight className="w-4 h-4" />
@@ -167,7 +167,7 @@ export const EventSimulatorScreen: React.FC = () => {
             5-STEP DETERMINISTIC CONTEXT CASCADE
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 relative">
             
             {/* STEP 1 */}
             <div className="p-5 rounded-xl bg-[#E8F0FE] border border-[#4285F4]/40 text-center space-y-2 shadow-2xs">

@@ -41,11 +41,11 @@ export const OverviewScreen: React.FC = () => {
   ];
 
   return (
-    <div className="p-6 space-y-6 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif relative">
+    <div className="p-4 sm:p-6 space-y-6 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif relative">
       
       {/* 1. INSTITUTIONAL HERO & CONTEXT IDENTITY (Stitch Design) */}
-      <div className="w-full bg-white rounded-xl border border-[#DADCE0] shadow-sm p-6 flex flex-col gap-3">
-        <div className="flex items-center justify-between">
+      <div className="w-full bg-white rounded-xl border border-[#DADCE0] shadow-sm p-4 sm:p-6 flex flex-col gap-3">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 rounded bg-[#E8F0FE] flex items-center justify-center text-[#1A73E8]">
               <Sparkles className="w-4 h-4 text-[#1A73E8]" />
@@ -61,19 +61,19 @@ export const OverviewScreen: React.FC = () => {
 
         <div className="mt-1 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-[#202124] tracking-tight">CampusOS</h1>
-            <p className="italic text-base text-[#5F6368] mt-0.5">
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#202124] tracking-tight">CampusOS</h1>
+            <p className="italic text-sm sm:text-base text-[#5F6368] mt-0.5">
               “One campus. One context. Connected decisions.”
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 w-full sm:w-auto">
             <button
               onClick={() => {
                 triggerEvent('BUS_DELAY');
                 showToast('Bus Delay Event Triggered & Cross-System Cascade Active');
               }}
-              className="px-5 py-2.5 rounded-md bg-[#4285F4] hover:bg-[#3367D6] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-2xs transition-all active:scale-98"
+              className="w-full sm:w-auto px-5 py-3 sm:py-2.5 min-h-[44px] rounded-md bg-[#4285F4] hover:bg-[#3367D6] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-2xs transition-all active:scale-98"
             >
               <Zap className="w-4 h-4 fill-white" />
               SIMULATE BUS DELAY
@@ -439,10 +439,10 @@ export const OverviewScreen: React.FC = () => {
 
       {/* Toast Notification Box for Micro-delight Feedback (Stitch code.html Spec) */}
       {toastMessage && (
-        <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-[#202124] text-white py-3 px-5 rounded-lg shadow-xl flex items-center gap-3 z-50 animate-fadeIn font-serif border border-[#DADCE0]">
-          <CheckCircle2 className="w-5 h-5 text-[#34A853]" />
-          <span className="text-xs font-medium">{toastMessage}</span>
-          <span className="text-[10px] font-mono text-[#34A853] uppercase font-bold border-l border-[#5F6368] pl-3">
+        <div className="fixed bottom-20 lg:bottom-10 left-1/2 -translate-x-1/2 bg-[#202124] text-white py-3 px-5 rounded-lg shadow-xl flex items-center gap-3 z-50 animate-fadeIn font-serif border border-[#DADCE0] max-w-[90vw]">
+          <CheckCircle2 className="w-5 h-5 text-[#34A853] shrink-0" />
+          <span className="text-xs font-medium truncate">{toastMessage}</span>
+          <span className="text-[10px] font-mono text-[#34A853] uppercase font-bold border-l border-[#5F6368] pl-3 shrink-0">
             SYNC #OK
           </span>
         </div>

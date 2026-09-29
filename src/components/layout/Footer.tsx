@@ -1,9 +1,13 @@
 import React from 'react';
 import { ShieldAlert, Cpu } from 'lucide-react';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  className?: string;
+}
+
+export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
   return (
-    <footer className="h-10 bg-white border-t border-[#DADCE0] px-6 flex items-center justify-between text-xs text-[#5F6368] shrink-0 font-serif">
+    <footer className={`h-10 bg-white border-t border-[#DADCE0] px-6 flex items-center justify-between text-xs text-[#5F6368] shrink-0 font-serif ${className}`}>
       <div className="flex items-center gap-2">
         <ShieldAlert className="w-3.5 h-3.5 text-[#4285F4]" />
         <span>

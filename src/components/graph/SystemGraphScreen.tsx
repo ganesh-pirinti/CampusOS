@@ -100,41 +100,41 @@ export const SystemGraphScreen: React.FC = () => {
   const [selectedSystem, setSelectedSystem] = useState<SystemBox>(systemsList[0]);
 
   return (
-    <div className="p-8 space-y-8 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif">
+    <div className="p-4 sm:p-6 lg:p-8 space-y-6 lg:space-y-8 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif">
       
       {/* 1. TITLE HEADER */}
-      <div className="bg-white p-6 rounded-xl border border-[#DADCE0] shadow-sm space-y-2">
+      <div className="bg-white p-4 sm:p-6 rounded-xl border border-[#DADCE0] shadow-sm space-y-2">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E8F0FE] text-[#1A73E8] text-xs font-mono font-bold border border-[#4285F4]/30">
           <Network className="w-3.5 h-3.5 text-[#4285F4]" />
           CAMPUSOS CONNECTOR ARCHITECTURE
         </div>
-        <h1 className="text-3xl font-bold text-[#202124] tracking-tight">HOW CAMPUSOS CONNECTS</h1>
-        <p className="text-sm text-[#5F6368] font-normal">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#202124] tracking-tight">HOW CAMPUSOS CONNECTS</h1>
+        <p className="text-xs sm:text-sm text-[#5F6368] font-normal">
           Click any system box to see what it knows, what it affects, and what CampusOS does with it.
         </p>
       </div>
 
       {/* 2. MAIN INTERACTIVE LAYOUT */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
         
         {/* 8 CLEAN BOXES & CENTRAL CONTEXT ENGINE (Left 2 cols) */}
-        <div className="lg:col-span-2 bg-white rounded-xl border border-[#DADCE0] p-6 shadow-sm space-y-6">
+        <div className="lg:col-span-2 bg-white rounded-xl border border-[#DADCE0] p-4 sm:p-6 shadow-sm space-y-6">
           <div className="text-center pb-2 border-b border-[#DADCE0]">
-            <h2 className="text-lg font-bold text-[#202124]">CONNECTED CAMPUS DOMAINS</h2>
+            <h2 className="text-base sm:text-lg font-bold text-[#202124]">CONNECTED CAMPUS DOMAINS</h2>
             <p className="text-xs text-[#5F6368]">Select a system box to inspect its connector data flow.</p>
           </div>
 
           {/* CENTRAL CONTEXT ENGINE HERO CARD */}
-          <div className="p-6 rounded-xl bg-[#4285F4] text-white text-center shadow-md space-y-2">
+          <div className="p-4 sm:p-6 rounded-xl bg-[#4285F4] text-white text-center shadow-md space-y-2">
             <Zap className="w-8 h-8 fill-white mx-auto" />
-            <h3 className="text-xl font-bold tracking-tight">CAMPUSOS CONTEXT ENGINE</h3>
+            <h3 className="text-lg sm:text-xl font-bold tracking-tight">CAMPUSOS CONTEXT ENGINE</h3>
             <p className="text-xs text-white/90">
               Central deterministic event graph &amp; cross-domain decision engine.
             </p>
           </div>
 
           {/* 8 BOXES GRID */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             {systemsList.map((sys) => {
               const Icon = sys.icon;
               const isSelected = selectedSystem.id === sys.id;
@@ -142,19 +142,19 @@ export const SystemGraphScreen: React.FC = () => {
                 <button
                   key={sys.id}
                   onClick={() => setSelectedSystem(sys)}
-                  className={`p-4 rounded-xl border transition-all text-left space-y-2 ${
+                  className={`p-3 sm:p-4 min-h-[44px] rounded-xl border transition-all text-left space-y-2 ${
                     isSelected
                       ? 'bg-[#E8F0FE] border-[#4285F4] shadow-sm font-bold ring-2 ring-[#4285F4]/30'
                       : 'bg-[#F8F9FA] border-[#DADCE0] hover:bg-white hover:border-[#4285F4]'
                   }`}
                 >
                   <div 
-                    className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-white font-bold"
                     style={{ backgroundColor: sys.color }}
                   >
                     <Icon className="w-4 h-4" />
                   </div>
-                  <h4 className="font-bold text-sm text-[#202124]">{sys.name}</h4>
+                  <h4 className="font-bold text-xs sm:text-sm text-[#202124] truncate">{sys.name}</h4>
                   <div className="text-[10px] text-[#5F6368] font-mono">Click to inspect</div>
                 </button>
               );

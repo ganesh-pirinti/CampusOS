@@ -22,24 +22,24 @@ export const AchievementOSScreen: React.FC = () => {
   const [showWorkflowDrawer, setShowWorkflowDrawer] = useState(false);
 
   return (
-    <div className="p-8 space-y-8 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif">
+    <div className="p-4 sm:p-6 lg:p-8 space-y-6 lg:space-y-8 max-w-7xl mx-auto text-[#202124] animate-fadeIn font-serif">
       
       {/* 1. TITLE HEADER */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-6 rounded-xl border border-[#DADCE0] shadow-sm">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-4 sm:p-6 rounded-xl border border-[#DADCE0] shadow-sm">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E6F4EA] text-[#137333] text-xs font-mono font-bold border border-[#34A853]/30 mb-2">
             <Trophy className="w-3.5 h-3.5 text-[#34A853]" />
             ACHIEVEMENTOS CORE
           </div>
-          <h1 className="text-3xl font-bold text-[#202124] tracking-tight">ACHIEVEMENT → ACADEMIC ACTION</h1>
-          <p className="text-sm text-[#5F6368] font-normal mt-1">
+          <h1 className="text-2xl sm:text-3xl font-bold text-[#202124] tracking-tight">ACHIEVEMENT → ACADEMIC ACTION</h1>
+          <p className="text-xs sm:text-sm text-[#5F6368] font-normal mt-1">
             Turn extracurricular student success into instant, automated On-Duty (OD) attendance credit.
           </p>
         </div>
 
         <button
           onClick={() => setShowWorkflowDrawer(true)}
-          className="px-6 py-3 rounded-lg bg-[#34A853] hover:bg-[#2D9247] text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-sm transition-all"
+          className="w-full sm:w-auto px-6 py-3 min-h-[44px] rounded-lg bg-[#34A853] hover:bg-[#2D9247] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all"
         >
           <Sparkles className="w-4 h-4 fill-white" />
           VIEW WORKFLOW
@@ -47,18 +47,18 @@ export const AchievementOSScreen: React.FC = () => {
       </div>
 
       {/* 2. HERO WORKFLOW CARD */}
-      <div className="bg-white rounded-xl border border-[#DADCE0] p-8 shadow-sm space-y-8">
+      <div className="bg-white rounded-xl border border-[#DADCE0] p-4 sm:p-6 lg:p-8 shadow-sm space-y-6 lg:space-y-8">
         
         {/* TOP EVENT BADGE */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#DADCE0] pb-6">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-xl bg-[#E6F4EA] text-[#34A853] flex items-center justify-center font-bold text-2xl border border-[#34A853]/30">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 rounded-xl bg-[#E6F4EA] text-[#34A853] flex items-center justify-center font-bold text-xl sm:text-2xl border border-[#34A853]/30">
               🏆
             </div>
             <div>
               <span className="text-xs font-mono text-[#34A853] uppercase font-bold">VERIFIED COMPETITION WIN</span>
-              <h2 className="text-2xl font-bold text-[#202124]">Hackathon Won</h2>
-              <div className="text-sm text-[#5F6368] mt-0.5">
+              <h2 className="text-xl sm:text-2xl font-bold text-[#202124]">Hackathon Won</h2>
+              <div className="text-xs sm:text-sm text-[#5F6368] mt-0.5">
                 Student: <strong className="text-[#202124]">Ganesh</strong> (24CSE00123) • Date: <strong className="text-[#202124]">29 Sep</strong>
               </div>
             </div>
@@ -77,7 +77,7 @@ export const AchievementOSScreen: React.FC = () => {
             5-STEP AUTOMATED CASCADE TIMELINE
           </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-3 relative">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-3 relative">
             {/* Step 1 */}
             <div className="p-4 rounded-lg bg-[#E6F4EA] border border-[#34A853]/40 text-center space-y-2">
               <div className="w-7 h-7 rounded-full bg-[#34A853] text-white font-bold text-xs flex items-center justify-center mx-auto">1</div>
@@ -140,7 +140,7 @@ export const AchievementOSScreen: React.FC = () => {
         <div className="flex justify-center pt-2">
           <button
             onClick={() => setShowWorkflowDrawer(true)}
-            className="px-8 py-3.5 rounded-lg bg-[#34A853] hover:bg-[#2D9247] text-white font-bold text-sm uppercase tracking-wider flex items-center gap-2.5 shadow-md transition-all"
+            className="w-full sm:w-auto px-8 py-3.5 min-h-[48px] rounded-lg bg-[#34A853] hover:bg-[#2D9247] text-white font-bold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md transition-all"
           >
             <CheckCircle2 className="w-5 h-5 fill-white text-[#34A853]" />
             VIEW WORKFLOW

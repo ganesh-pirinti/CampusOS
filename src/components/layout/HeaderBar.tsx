@@ -6,11 +6,16 @@ import {
   Zap, 
   Users, 
   CheckCircle2, 
-  AlertCircle 
+  AlertCircle,
+  Menu
 } from 'lucide-react';
 import { useCampus } from '../../context/CampusContext';
 
-export const HeaderBar: React.FC = () => {
+interface HeaderBarProps {
+  onToggleMobileMenu?: () => void;
+}
+
+export const HeaderBar: React.FC<HeaderBarProps> = ({ onToggleMobileMenu }) => {
   const { events, systems, currentSimulation, setActiveTab } = useCampus();
   const [timeStr, setTimeStr] = useState<string>('2026-09-29 14:29:30');
 
@@ -33,9 +38,18 @@ export const HeaderBar: React.FC = () => {
 
   return (
     <div className="relative z-10 shrink-0 bg-white">
-      <header className="h-16 border-b border-[#DADCE0] px-6 flex items-center justify-between">
-        {/* Left System Indicators */}
-        <div className="flex items-center gap-6">
+      <header className="h-16 border-b border-[#DADCE0] px-4 sm:px-6 flex items-center justify-between">
+        {/* Left System Indicators & Mobile Menu Button */}
+        <div className="flex items-center gap-3 sm:gap-6">
+          {/* Hamburger Menu Button on Mobile */}
+          <button
+            onClick={onToggleMobileMenu}
+            className="lg:hidden p-2 min-h-[44px] min-w-[44px] rounded-md bg-[#F8F9FA] hover:bg-[#E8EAED] border border-[#DADCE0] text-[#202124] flex items-center justify-center transition-colors"
+            aria-label="Open Navigation Menu"
+          >
+            <Menu className="w-5 h-5 text-[#202124]" />
+          </button>
+
           <div className="flex items-center gap-2.5">
             <div className="relative flex items-center justify-center w-3 h-3">
               <span className={`absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping ${
@@ -45,8 +59,11 @@ export const HeaderBar: React.FC = () => {
                 currentSimulation.running ? 'bg-[#4285F4]' : 'bg-[#34A853]'
               }`} />
             </div>
-            <span className="text-xs font-mono font-bold text-[#202124] uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold text-[#202124] uppercase tracking-wider hidden sm:inline">
               {currentSimulation.running ? 'CONTEXT ENGINE PROCESSING...' : 'ENGINE ACTIVE'}
+            </span>
+            <span className="text-xs font-mono font-bold text-[#202124] uppercase tracking-wider sm:hidden">
+              {currentSimulation.running ? 'PROCESSING...' : 'ACTIVE'}
             </span>
           </div>
 

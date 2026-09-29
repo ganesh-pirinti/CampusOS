@@ -14,7 +14,12 @@ import {
 import { useCampus } from '../../context/CampusContext';
 import type { TabId } from '../../context/CampusContext';
 
-export const Sidebar: React.FC = () => {
+interface SidebarProps {
+  onItemClick?: () => void;
+  className?: string;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({ onItemClick, className = '' }) => {
   const { activeTab, setActiveTab, events, resetDemoData, triggerEvent } = useCampus();
 
   const navItems: { 
@@ -36,7 +41,7 @@ export const Sidebar: React.FC = () => {
   ];
 
   return (
-    <aside className="w-64 bg-white border-r border-[#DADCE0] flex flex-col justify-between shrink-0 select-none z-20 shadow-sm">
+    <aside className={`w-64 bg-white border-r border-[#DADCE0] flex flex-col justify-between shrink-0 select-none z-20 shadow-sm ${className}`}>
       <div>
         {/* App Title Header */}
         <div className="p-5 border-b border-[#DADCE0] bg-[#F8F9FA]/80">
@@ -63,8 +68,11 @@ export const Sidebar: React.FC = () => {
         {/* Action Button */}
         <div className="p-4">
           <button
-            onClick={() => triggerEvent('BUS_DELAY')}
-            className="w-full py-2.5 px-3 rounded-md bg-[#4285F4] hover:bg-[#3367D6] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all transform active:scale-98 font-serif"
+            onClick={() => {
+              triggerEvent('BUS_DELAY');
+              if (onItemClick) onItemClick();
+            }}
+            className="w-full min-h-[44px] py-2.5 px-3 rounded-md bg-[#4285F4] hover:bg-[#3367D6] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all transform active:scale-98 font-serif"
           >
             <Zap className="w-4 h-4 fill-white" />
             SIMULATE EVENT
@@ -80,8 +88,11 @@ export const Sidebar: React.FC = () => {
             return (
               <button
                 key={item.id}
-                onClick={() => setActiveTab(item.id)}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-md text-sm font-medium transition-all ${
+                onClick={() => {
+                  setActiveTab(item.id);
+                  if (onItemClick) onItemClick();
+                }}
+                className={`w-full min-h-[44px] flex items-center justify-between px-3 py-2.5 rounded-md text-sm font-medium transition-all ${
                   isActive
                     ? 'bg-[#E8F0FE] text-[#1A73E8] font-bold border-l-4 border-[#4285F4] shadow-2xs'
                     : 'text-[#3C4043] hover:bg-[#F1F3F4] hover:text-[#202124] border-l-4 border-transparent'
